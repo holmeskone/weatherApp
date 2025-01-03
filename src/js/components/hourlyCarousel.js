@@ -15,6 +15,6 @@ export function hourlyCarousel(description, hours) {
     hourOfDay.innerHTML = hour.datetime;
     hourlySection.append(hourOfDay);
   });
-  hourlyCarouselSection.append(hourlySection);
-  document.body.append(hourlyCarouselSection, todayDescription);
+  hourlyCarouselSection.append(todayDescription, hourlySection);
+  document.body.append(hourlyCarouselSection);
 }
