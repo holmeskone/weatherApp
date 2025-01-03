@@ -16,4 +16,7 @@ metricToggle.addEventListener("click", () => {
 const clickInput = document.getElementById("search");
 clickInput.addEventListener("click", () => {
   searchCity(localStorage.getItem("unit"));
+  if (document.getElementById("location")) {
+    document.getElementById("location").remove();
+  }
 });
