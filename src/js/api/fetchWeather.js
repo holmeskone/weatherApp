@@ -1,8 +1,8 @@
 import { errorHandling } from "./errorHandling";
-export async function getWeather(city) {
+export async function getWeather(city, unit) {
   try {
     const response = await fetch(
-      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=WVR3K9GYJ4ZQJJRHS6AFF8E2K`,
+      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=${unit}&key=WVR3K9GYJ4ZQJJRHS6AFF8E2K`,
       { mode: "cors" }
     );
     const weatherData = await response.json();
