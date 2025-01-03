@@ -18,5 +18,7 @@ clickInput.addEventListener("click", () => {
   searchCity(localStorage.getItem("unit"));
   if (document.getElementById("location")) {
     document.getElementById("location").remove();
+    document.getElementById("weather-card").remove();
+    document.getElementById("hour-carousel").remove();
   }
 });
