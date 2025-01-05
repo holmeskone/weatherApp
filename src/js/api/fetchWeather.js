@@ -2,6 +2,7 @@ import { errorHandling } from "./errorHandling";
 import { displayLocation } from "../components/location";
 import { weatherCard } from "../components/weatherCard";
 import { hourlyCarousel } from "../components/hourlyCarousel";
+import { weatherStats } from "../components/weatherStats";
 export async function getWeather(city, unit) {
   try {
     const response = await fetch(
@@ -16,6 +17,12 @@ export async function getWeather(city, unit) {
     const weatherMinTemp = weatherData.days[0].tempmin;
     const weatherDescription = weatherData.days[0].description;
     const weatherHours = weatherData.days[0].hours;
+    const weatherFeelsLike = weatherData.days[0].feelslike;
+    const weatherHumidity = weatherData.days[0].humidity;
+    const weatherWind = weatherData.days[0].windspeed;
+    const weatherUV = weatherData.days[0].uvindex;
+    const weatherSunrise = weatherData.days[0].sunrise;
+    const weatherSunset = weatherData.days[0].sunset;
     console.log(weatherData);
     displayLocation(weatherCity);
     weatherCard(
@@ -26,6 +33,14 @@ export async function getWeather(city, unit) {
       weatherMinTemp
     );
     hourlyCarousel(weatherDescription, weatherHours);
+    weatherStats(
+      weatherFeelsLike,
+      weatherHumidity,
+      weatherWind,
+      weatherUV,
+      weatherSunrise,
+      weatherSunset
+    );
   } catch (err) {
     console.log(err);
     errorHandling(city);
