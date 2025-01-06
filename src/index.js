@@ -20,5 +20,7 @@ clickInput.addEventListener("click", () => {
     document.getElementById("location").remove();
     document.getElementById("weather-card").remove();
     document.getElementById("hour-carousel").remove();
+    document.getElementById("weather-stats-section").remove();
+    document.getElementById("fortnightly-carousel").remove();
   }
 });
