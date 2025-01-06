@@ -17,10 +17,10 @@ export function weatherCard(
   const currentDescription = document.createElement("h3");
   const maxTemp = document.createElement("h3");
   const minTemp = document.createElement("h3");
-  temperature.innerHTML = Math.round(currentTemperature);
+  temperature.innerHTML = `${Math.round(currentTemperature)}º`;
   currentDescription.innerHTML = conditions;
-  maxTemp.innerHTML = Math.round(maxTemperature);
-  minTemp.innerHTML = Math.round(minTemperature);
+  maxTemp.innerHTML = `H:${Math.round(maxTemperature)}º`;
+  minTemp.innerHTML = `L:${Math.round(minTemperature)}º`;
 
   weatherCardTemperature.appendChild(temperature);
   weatherCardDescription.appendChild(currentDescription);
