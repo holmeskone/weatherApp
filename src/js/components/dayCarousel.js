@@ -51,8 +51,8 @@ export function dayCarousel(fortnightlyWeather) {
     maxSection.id = `day-${dayIndex}-max-section`; // This will be the id for the max section
     const minOfDay = document.createElement("p");
     const maxOfDay = document.createElement("p");
-    minOfDay.innerHTML = Math.round(day.tempmin);
-    maxOfDay.innerHTML = Math.round(day.tempmax);
+    minOfDay.innerHTML = `${Math.round(day.tempmin)}º`;
+    maxOfDay.innerHTML = `${Math.round(day.tempmax)}º`;
     minSection.append(minOfDay);
     maxSection.append(maxOfDay);
     minmaxSection.append(minSection, maxSection);
