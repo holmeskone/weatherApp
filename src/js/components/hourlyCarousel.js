@@ -15,15 +15,21 @@ export function hourlyCarousel(description, hours) {
 
   //Iterate over the hours object and return each hour, icon and temperature for the day.
   hourlySection.id = "hourly-section";
+
   hours.forEach((hour) => {
-    console.log(hour.datetime, hour.icon, hour.temp);
-    const hourOfDay = document.createElement("p");
-    const iconOfHour = document.createElement("i");
-    const temperatureOfHour = document.createElement("p");
-    hourOfDay.innerHTML = hour.datetime;
-    iconOfHour.className = iconIdentifier(hour.icon);
-    temperatureOfHour.innerHTML = Math.round(hour.temp);
-    hourlySection.append(hourOfDay, iconOfHour, temperatureOfHour);
+    // If the hour is greater or equal to current hour display hours.
+    const hourOfDayElement = document.createElement("p");
+    const iconOfHourElement = document.createElement("i");
+    const temperatureOfHourElement = document.createElement("p");
+    const hourOfDay = hour.datetime.slice(0, 2);
+    hourOfDayElement.innerHTML = hourOfDay;
+    iconOfHourElement.className = iconIdentifier(hour.icon);
+    temperatureOfHourElement.innerHTML = `${Math.round(hour.temp)}º`;
+    hourlySection.append(
+      hourOfDayElement,
+      iconOfHourElement,
+      temperatureOfHourElement
+    );
   });
 
   //Dependant on the icon in API, call one FontAwesome icon or another
