@@ -13,8 +13,8 @@ export function weatherCard(
   weatherMaxMin.id = "weather-maxmin";
   const weatherCardDescription = document.createElement("div");
   weatherCardDescription.id = "weather-description";
-  const temperature = document.createElement("h3");
-  const currentDescription = document.createElement("h3");
+  const temperature = document.createElement("h2");
+  const currentDescription = document.createElement("h4");
   const maxTemp = document.createElement("h3");
   const minTemp = document.createElement("h3");
   temperature.innerHTML = `${Math.round(currentTemperature)}º`;
@@ -30,7 +30,8 @@ export function weatherCard(
     weatherCardDescription,
     weatherMaxMin
   );
-  document.body.appendChild(weatherCardDiv);
+  const weatherSection = document.getElementById("weather-section");
+  weatherSection.append(weatherCardDiv);
 
   console.log(
     city,
