@@ -17,10 +17,12 @@ const clickInput = document.getElementById("search");
 clickInput.addEventListener("click", () => {
   searchCity(localStorage.getItem("unit"));
   if (document.getElementById("location")) {
-    document.getElementById("location").remove();
-    document.getElementById("weather-card").remove();
-    document.getElementById("hour-carousel").remove();
-    document.getElementById("weather-stats-section").remove();
-    document.getElementById("fortnightly-carousel").remove();
+    // Step 1: Get the parent div
+    const weatherSection = document.getElementById("weather-section");
+
+    // Step 2: Clear and remove all child divs
+    while (weatherSection.firstChild) {
+      weatherSection.removeChild(weatherSection.firstChild);
+    }
   }
 });
