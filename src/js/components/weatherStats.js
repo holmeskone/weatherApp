@@ -130,5 +130,6 @@ export function weatherStats(feelslike, humidity, wind, uv, sunrise, sunset) {
   );
 
   // Append the weatherStatsSection to the document body
-  document.body.append(weatherStatsSection);
+  const weatherSection = document.getElementById("weather-section");
+  weatherSection.append(weatherStatsSection);
 }
