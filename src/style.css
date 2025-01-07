@@ -87,6 +87,7 @@ h4 {
   margin-bottom: 2vh;
   background-color: #ffffff1c;
   border-radius: 10px;
+  padding: 1vw;
 }
 
 #hour-carousel #today-description-carousel {
@@ -104,7 +105,24 @@ h4 {
 #hour-carousel #hourly-section {
   display: flex;
   justify-content: space-evenly;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  white-space: nowrap; /* Prevents wrapping of child elements */
 }
+
+#hourly-section > div {
+  flex: 0 0 auto; /* Prevent columns from shrinking or growing */
+  width: 2vw; /* Set width to 2% of the viewport width on desktop */
+  text-align: center; /* Center content inside columns */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 1150px) {
+  #hourly-section > div {
+    width: 1vw;
+    padding: 2vw;
+    margin: 1vw;
+  }
+} /* 3 columns with gap accounted for
 
 /* Managing Weather Stats Section */
 
@@ -126,7 +144,7 @@ h4 {
 }
 
 /* Media query for smaller screens */
-@media (max-width: 1080px) {
+@media (max-width: 1150px) {
   #weather-stats-section > div {
     flex-basis: calc(33.33% - 1vw); /* 3 columns with gap accounted for */
   }
