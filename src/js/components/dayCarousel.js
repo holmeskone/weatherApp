@@ -62,5 +62,6 @@ export function dayCarousel(fortnightlyWeather) {
     daySection.append(dayBlock);
   });
   dayCarouselSection.append(backwardSection, daySection, forwardSection);
-  document.body.append(dayCarouselSection);
+  const weatherSection = document.getElementById("weather-section");
+  weatherSection.append(dayCarouselSection);
 }
