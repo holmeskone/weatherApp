@@ -8,14 +8,26 @@ export function dayCarousel(fortnightlyWeather) {
   dayCarouselSection.id = "fortnightly-carousel";
   //Backwards section, to go to the left on the carousel.
   const backwardSection = document.createElement("div");
+  backwardSection.className = "button-section";
+  backwardSection.id = "back-section";
   const backwardButton = document.createElement("button");
+  backwardButton.id = "back-button";
+  const backwardIcon = document.createElement("i");
+  backwardIcon.className = "fa-solid fa-arrow-left";
+  backwardIcon.id = "back-icon";
+  backwardButton.appendChild(backwardIcon);
   backwardSection.append(backwardButton);
   //Main Section of carousel.
   const daySection = document.createElement("div"); // Block for whole 15 day section
   daySection.id = "fortnight-section";
   //Forward section, to go to the right on the carousel.
   const forwardSection = document.createElement("div");
+  forwardSection.className = "button-section";
   const forwardButton = document.createElement("button");
+  forwardButton.id = "forward-button";
+  const forwardIcon = document.createElement("i");
+  forwardIcon.className = "fa-solid fa-arrow-right";
+  forwardButton.appendChild(forwardIcon);
   forwardSection.append(forwardButton);
 
   let dayIndex = 0;
@@ -23,6 +35,7 @@ export function dayCarousel(fortnightlyWeather) {
   fortnightlyWeather.forEach((day) => {
     const dayBlock = document.createElement("div"); // Block for each day, within this block there will be the day, date, icon, min and max
     dayBlock.id = `day-${dayIndex}-section`;
+    dayBlock.className = "day";
     // Day and Date section
     const dayOfWeek = document.createElement("div"); // Create a div where the day and date information will be added
     const weekDay = document.createElement("p"); // Create a p to display day of Week {Monday, Tuesday...}.
@@ -47,6 +60,7 @@ export function dayCarousel(fortnightlyWeather) {
     const minSection = document.createElement("div"); // This section will contain the min of the day
     const maxSection = document.createElement("div"); // This section will contain the max of the day
     minmaxSection.id = `day-${dayIndex}-minmax-section`; // This will be the id for the minmax section
+    minmaxSection.className = "min-max";
     minSection.id = `day-${dayIndex}-min-section`; // This will be the id for the min section
     maxSection.id = `day-${dayIndex}-max-section`; // This will be the id for the max section
     const minOfDay = document.createElement("p");
