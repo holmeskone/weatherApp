@@ -13,12 +13,12 @@ export function changeUnits() {
     console.log(typeof numeralTemperatureValue);
     if (newUnit === "metric") {
       //The new unit it changes to, in this case it moved from F to C.
-      let celciusTemperature = numeralTemperatureValue - 33;
-      temperature.innerHTML = `${celciusTemperature}º`;
+      let celciusTemperature = (numeralTemperatureValue - 32) / (9 / 5);
+      temperature.innerHTML = `${Math.round(celciusTemperature)}º`;
     } else {
       //The new unit it changes to, in this case it moved from C to F.
-      let fahrenheitTemperature = numeralTemperatureValue + 33;
-      temperature.innerHTML = `${fahrenheitTemperature}º`;
+      let fahrenheitTemperature = numeralTemperatureValue * (9 / 5) + 32;
+      temperature.innerHTML = `${Math.round(fahrenheitTemperature)}º`;
     }
   });
 }
