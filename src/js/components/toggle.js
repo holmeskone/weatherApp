@@ -1,29 +1,30 @@
-let toggleButton = document.querySelector("[data-metric-toggle]");
-export function toogleDefaultMetrics() {
+const checkbox = document.getElementById("status");
+
+// Experiment Section
+export function sliderMetrics(unit) {
+  if (unit === "us") {
+    localStorage.setItem("unit", "metric");
+    console.log(`It was fahrenheit, now it's celcius`);
+    // checkbox.checked = false;
+  } else {
+    localStorage.setItem("unit", "us");
+    console.log(`It was celcius, now it's fahrenheit`);
+    // checkbox.checked = true;
+  }
+}
+
+export function sliderDefaultMetrics() {
   if (localStorage.getItem("unit") === null) {
     localStorage.setItem("unit", "metric");
     console.log(
       `Has automatically been alocated a unit ${localStorage.getItem("unit")}`
     );
-    toggleButton.innerHTML = "Change to fahrenheit";
+    // checkbox.checked = false;
   } else {
     if (localStorage.getItem("unit") === "metric") {
-      toggleButton.innerHTML = "Change to fahrenheit";
+      checkbox.checked = false;
     } else {
-      toggleButton.innerHTML = "Change to celcius";
+      checkbox.checked = true;
     }
-  }
-}
-
-export function toogleMetrics(unit) {
-  if (unit === "us") {
-    toggleButton.innerHTML = "";
-    localStorage.setItem("unit", "metric");
-    console.log(`It was fahrenheit, now it's celcius`);
-    toggleButton.textContent = "Change to fahrenheit";
-  } else {
-    localStorage.setItem("unit", "us");
-    console.log(`It was celcius, now it's fahrenheit`);
-    toggleButton.innerHTML = "Change to celcius";
   }
 }
