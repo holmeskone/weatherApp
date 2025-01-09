@@ -18,8 +18,15 @@
   <body>
     <div id="page-container">
       <div id="search-bar-section">
-        <div id="unit-toggle">
-          <button id="metric" data-metric-toggle></button>
+        <div class="custom-checkbox">
+          <input id="status" type="checkbox" name="status" data-metric-toggle />
+          <label for="status">
+            <div
+              class="status-switch"
+              data-unchecked="Celcius"
+              data-checked="Fahrenheit"
+            ></div>
+          </label>
         </div>
         <div id="search-bar">
           <input type="text" name="city" id="city" />
