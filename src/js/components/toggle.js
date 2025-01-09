@@ -1,15 +1,19 @@
 const checkbox = document.getElementById("status");
 
+import { changeUnits } from "../utils/weatherUtils";
+
 // Experiment Section
 export function sliderMetrics(unit) {
   if (unit === "us") {
     localStorage.setItem("unit", "metric");
     console.log(`It was fahrenheit, now it's celcius`);
     // checkbox.checked = false;
+    changeUnits();
   } else {
     localStorage.setItem("unit", "us");
     console.log(`It was celcius, now it's fahrenheit`);
     // checkbox.checked = true;
+    changeUnits();
   }
 }
 
