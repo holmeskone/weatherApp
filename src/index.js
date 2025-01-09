@@ -18,11 +18,9 @@ unitSlider.addEventListener("click", () => {
 //Searching city for temperature
 const clickInput = document.getElementById("search");
 clickInput.addEventListener("click", () => {
-  if (document.getElementById("location")) {
-    // Step 1: Get the parent div
-    const weatherSection = document.getElementById("weather-section");
-
-    // Step 2: Clear and remove all child divs
+  const weatherSection = document.getElementById("weather-section");
+  if (weatherSection.firstChild) {
+    // Step 1: Clear and remove all child divs
     while (weatherSection.firstChild) {
       weatherSection.removeChild(weatherSection.firstChild);
     }
