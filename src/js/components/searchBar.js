@@ -1,6 +1,6 @@
 import { getWeather } from "../api/fetchWeather";
 
-export function searchCity(unit) {
+export async function searchCity(unit) {
   // Create the outer div for the loading spinner
   const weatherSection = document.getElementById("weather-section");
   const loadingSpinner = document.createElement("div");
@@ -23,6 +23,6 @@ export function searchCity(unit) {
   weatherSection.appendChild(loadingSpinner);
 
   const inputCity = document.getElementById("city");
-  getWeather(inputCity.value, unit);
+  await getWeather(inputCity.value, unit);
   console.log(inputCity.value, unit);
 }
