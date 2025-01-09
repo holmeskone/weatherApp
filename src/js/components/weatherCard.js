@@ -14,6 +14,7 @@ export function weatherCard(
   const weatherCardDescription = document.createElement("div");
   weatherCardDescription.id = "weather-description";
   const temperature = document.createElement("h2");
+  temperature.className = "temperature";
   const currentDescription = document.createElement("h4");
   const maxTemp = document.createElement("h3");
   const minTemp = document.createElement("h3");
