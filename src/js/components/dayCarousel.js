@@ -70,6 +70,8 @@ export function dayCarousel(fortnightlyWeather) {
     const maxOfDay = document.createElement("p");
     minOfDay.innerHTML = `${Math.round(day.tempmin)}º`;
     maxOfDay.innerHTML = `${Math.round(day.tempmax)}º`;
+    minOfDay.className = "temperature";
+    maxOfDay.className = "temperature";
     minSection.append(minOfDay);
     maxSection.append(maxOfDay);
     minmaxSection.append(minSection, maxSection);
