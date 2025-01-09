@@ -4,6 +4,12 @@ body {
   display: grid;
   color: white;
   font-weight: 300;
+  height: 100%;
+}
+
+.page-container {
+  height: 100vh;
+  width: 100vw;
 }
 
 /* Global Settings */
@@ -50,6 +56,7 @@ h4 {
   align-items: center;
   width: 70vw;
   justify-self: center;
+  margin-top: 4vh;
 }
 /* Managing City and Country titles */
 #location {
@@ -87,13 +94,12 @@ h4 {
   margin-bottom: 2vh;
   background-color: #ffffff1c;
   border-radius: 10px;
-  padding: 1vw;
 }
 
 #hour-carousel #today-description-carousel {
   text-align: center;
   line-height: 1.1;
-  padding: 0px;
+  padding: 0px 1vw;
   margin: 0px;
   align-content: center;
   border-bottom: 0.5px solid white;
@@ -107,6 +113,7 @@ h4 {
   justify-content: space-evenly;
   overflow-x: auto; /* Enables horizontal scrolling */
   white-space: nowrap; /* Prevents wrapping of child elements */
+  padding: 2vw;
 }
 
 #hourly-section > div {
@@ -121,8 +128,9 @@ h4 {
     width: 1vw;
     padding: 2vw;
     margin: 1vw;
+    gap: 1vw;
   }
-} /* 3 columns with gap accounted for
+}
 
 /* Managing Weather Stats Section */
 
@@ -132,6 +140,7 @@ h4 {
   gap: 2vw;
   margin-top: 2vh;
   width: 100%;
+  margin-bottom: 3vh;
 }
 
 #weather-stats-section > div {
@@ -139,7 +148,7 @@ h4 {
   justify-items: start;
   border: 1px solid white;
   border-radius: 10px;
-  padding: 1vh 2vw 0vh;
+  padding: 1vh 1vw;
   background-color: #ffffff1c;
 }
 
@@ -167,6 +176,106 @@ h4 {
 }
 #weather-stats-section div p {
   font-weight: 400;
+  font-size: 1.5em;
 }
 
-/* Managing Weather Stats Section */
+/* Managing Fortnightly Weather Section */
+
+#fortnightly-carousel {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+}
+
+#container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 3vh 0vh 0vh 0vh;
+  transition: all 0.25s ease-in;
+  width: 100%;
+  height: 100%;
+}
+
+#container #fortnight-section {
+  height: 100%;
+  width: 70vw;
+  display: flex;
+  scroll-behavior: smooth;
+  transition: all 0.25s ease-in;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+  align-self: normal;
+}
+
+@media (max-width: 391px) {
+  #container #fortnight-section {
+    width: 25vw; /* 1 columns with gap accounted for */
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#fortnight-section::-webkit-scrollbar {
+  display: none;
+}
+
+.day {
+  min-width: 12.5%;
+  width: 12.5%;
+  height: 100%;
+  border-radius: 8px;
+  justify-items: center;
+  scroll-snap-align: start;
+}
+@media (min-width: 601px) and (max-width: 1025px) {
+  .day {
+    min-width: 25%; /* 1 columns with gap accounted for */
+  }
+}
+
+@media (min-width: 392px) and (max-width: 600px) {
+  .day {
+    min-width: 50%; /* 1 columns with gap accounted for */
+  }
+}
+
+@media (max-width: 391px) {
+  .day {
+    min-width: 100%; /* 1 columns with gap accounted for */
+  }
+}
+
+.day > div {
+  display: contents;
+}
+
+.day .min-max {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  width: 50%;
+}
+
+.button-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#back-button,
+#forward-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+#back-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
