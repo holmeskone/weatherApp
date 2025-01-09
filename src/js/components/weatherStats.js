@@ -52,6 +52,7 @@ export function weatherStats(feelslike, humidity, wind, uv, sunrise, sunset) {
   feelsLikeTitleSection.id = "feels-like-title-section";
   feelsLikeTitle.id = "feels-like-title";
   feelsLikeValue.id = "feels-like-value";
+  feelsLikeValue.className = "temperature";
   feelsLikeIcon.id = "feels-like-icon";
   feelsLikeTitle.innerHTML = "Feels like";
   feelsLikeValue.innerHTML = Math.round(feelslike) + "º";
