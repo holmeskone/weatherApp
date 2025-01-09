@@ -5,7 +5,9 @@ import { hourlyCarousel } from "../components/hourlyCarousel";
 import { weatherStats } from "../components/weatherStats";
 import { dayCarousel } from "../components/dayCarousel";
 export async function getWeather(city, unit) {
+  const spinner = document.getElementById("loading-spinner");
   try {
+    spinner.style.display = "block";
     const response = await fetch(
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=${unit}&key=WVR3K9GYJ4ZQJJRHS6AFF8E2K`,
       { mode: "cors" }
@@ -51,5 +53,8 @@ export async function getWeather(city, unit) {
   } catch (err) {
     console.log(err);
     errorHandling(city);
+  } finally {
+    // Hide the spinner
+    spinner.style.display = "none";
   }
 }
