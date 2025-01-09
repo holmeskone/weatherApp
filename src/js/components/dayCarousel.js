@@ -6,6 +6,9 @@ export function dayCarousel(fortnightlyWeather) {
   // This is the overall carousel section, within this section there will be two buttons and the divs containing the daily forecasts/
   const dayCarouselSection = document.createElement("div");
   dayCarouselSection.id = "fortnightly-carousel";
+
+  const container = document.createElement("div");
+  container.id = "container";
   //Backwards section, to go to the left on the carousel.
   const backwardSection = document.createElement("div");
   backwardSection.className = "button-section";
@@ -75,7 +78,8 @@ export function dayCarousel(fortnightlyWeather) {
     dayBlock.append(dayOfWeek, iconSection, minmaxSection);
     daySection.append(dayBlock);
   });
-  dayCarouselSection.append(backwardSection, daySection, forwardSection);
+  container.append(backwardSection, daySection, forwardSection);
   const weatherSection = document.getElementById("weather-section");
+  dayCarouselSection.append(container);
   weatherSection.append(dayCarouselSection);
 }
