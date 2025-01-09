@@ -15,17 +15,36 @@ unitSlider.addEventListener("click", () => {
   sliderMetrics(localStorage.getItem("unit"));
 });
 
-//Searching city for temperature
+// Add a loading state variable
+let isLoading = false;
+
 const clickInput = document.getElementById("search");
-clickInput.addEventListener("click", () => {
-  const weatherSection = document.getElementById("weather-section");
-  if (weatherSection.firstChild) {
-    // Step 1: Clear and remove all child divs
-    while (weatherSection.firstChild) {
-      weatherSection.removeChild(weatherSection.firstChild);
-    }
+clickInput.addEventListener("click", async () => {
+  // If already loading, don't do anything
+  if (isLoading) {
+    return;
   }
-  searchCity(localStorage.getItem("unit"));
+
+  try {
+    // Set loading state
+    isLoading = true;
+    // Optionally disable the search button
+    clickInput.disabled = true;
+
+    const weatherSection = document.getElementById("weather-section");
+    // Step 1: Clear and remove all child divs
+    if (weatherSection.firstChild) {
+      while (weatherSection.firstChild) {
+        weatherSection.removeChild(weatherSection.firstChild);
+      }
+    }
+    // Step 2: Wait for searchCity to complete
+    await searchCity(localStorage.getItem("unit"));
+  } finally {
+    // Reset loading state and enable button regardless of success/failure
+    isLoading = false;
+    clickInput.disabled = false;
+  }
 });
 
 //Clicking on the button for the daily temperature carousel
