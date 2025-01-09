@@ -23,6 +23,7 @@ export function hourlyCarousel(description, hours) {
     const iconOfHourElement = document.createElement("i");
     const temperatureOfHourElement = document.createElement("p");
     hourOfDaySection.id = `hour-${hourIndex}-section`;
+    temperatureOfHourElement.className = "temperature";
     const hourOfDay = hour.datetime.slice(0, 2);
     hourOfDayElement.innerHTML = hourOfDay;
     iconOfHourElement.className = iconIdentifier(hour.icon);
