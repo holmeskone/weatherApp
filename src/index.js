@@ -1,18 +1,24 @@
 import "./style.css";
 import { searchCity } from "./js/components/searchBar";
-import { toogleDefaultMetrics, toogleMetrics } from "./js/components/toggle";
+import { sliderDefaultMetrics, sliderMetrics } from "./js/components/toggle";
 import { moveCarousel } from "./js/utils/carouselMovement";
 
 document.addEventListener("DOMContentLoaded", () => {
-  toogleDefaultMetrics();
+  sliderDefaultMetrics();
   console.log(localStorage.getItem("unit"));
 });
 
-console.log(localStorage.getItem("unit"));
-const metricToggle = document.querySelector("[data-metric-toggle]");
-metricToggle.addEventListener("click", () => {
-  toogleMetrics(localStorage.getItem("unit"));
-  console.log(localStorage.getItem("unit"));
+// console.log(localStorage.getItem("unit"));
+// const metricToggle = document.querySelector("[data-metric-toggle]");
+// metricToggle.addEventListener("click", () => {
+//   toogleMetrics(localStorage.getItem("unit"));
+//   console.log(localStorage.getItem("unit"));
+// });
+
+const unitSlider = document.getElementById("status");
+unitSlider.addEventListener("click", () => {
+  console.log("Clicked Toggle");
+  sliderMetrics(localStorage.getItem("unit"));
 });
 
 const clickInput = document.getElementById("search");
